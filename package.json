@@ -1,0 +1,16 @@
+{
+  "name": "Member Club",
+  "description": "Aplicação WEB para gerenciamento de cartão fidelidade.",
+  "author": "Frediano Carderaro",
+  "scripts": {
+    "server": "json-server --watch db.json --port 3333",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "json-server": "^1.0.0-alpha.21"
+  },
+  "devDependencies": {
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
