@@ -8,8 +8,31 @@
 <link rel="icon" href="favicon.svg"><script defer src="main.js"></script></head>
 
 <body>
+  <div class="container">
+    <header>
+      <img id="imgLogo" src="./src/assets/Logo.png" alt="Imagem do logo do comércio" />
+    </header>
+    <input id="cardID" type="text" name="cardID" placeholder="ID do cartão" required />
+    <form class="form">
+      <button type="submit" class="formButton">
+        <img src="./src/assets/icons/arrowEmpty.svg" alt="Ícone de Enter com o campo vazio" />
+      </button>
+    </form>
 
-  <script src="./scripts/index.js"></script>
+    <main id="content">
+      <div id="columnProfile">
+        <header>
+          <img id="userImage" src="./src/assets/images/profileImage.svg" alt="Imagem de perfil do usuário">
+          <div id="userData">
+            <h3>Natália Miranda</h3>
+            <span>Cliente desde 18/09/2023</span>
+          </div>
+        </header>
+      </div>
+
+      <div id="columnCard"></div>
+    </main>
+  </div>
 </body>
 
 </html>

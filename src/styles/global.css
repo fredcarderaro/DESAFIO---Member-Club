@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+:root {
+  --main-pink: #D658B3;
+  --main-green: #45B442;
+  --base-white: #FFFFFF;
+  --base-gray-100: #F4F1F2;
+  --base-gray-200: #E9E7E9;
+  --base-gray-300: #DFDCDF;
+  --base-gray-400: #CECACD;
+  --base-gray-500: #756C71;
+  --base-gray-600: #4A4448;
+  --base-gray-700: #332B31;
+
+  /* Text-size styles */
+  /* base size: body-text-md (16px) */
+  --heading-title-md: 1.5rem;
+  --heading-title-sm: 1.12rem;
+  --heading-subtitle-md: 0.88rem;
+  --heading-subtitle-sm: 0.75rem;
+  --body-text-md: 1rem;
+  --body-text-sm: 0.88rem;
+  --body-text-xs: 0.75rem;
+
+}
+
+body {
+  & header {
+    width: 116px;
+    height: 56px;
+
+    padding: 8px;
+
+    & #imgLogo {
+      max-width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+
+
+
+
+div.container {
+  /* Estilo para teste e posicionamento */
+  border: solid 2px green;
+  /* background-color: cadetblue; */
+  background-color: var(--base-gray-200);
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+
+  &>* {
+    margin-inline: auto;
+  }
+}

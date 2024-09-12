@@ -1,0 +1,106 @@
+#content {
+  /* border: blue solid 2px; */
+  width: 912px;
+  margin-block: auto;
+  display: flex;
+
+  /* justify-content: space-evenly; */
+  justify-content: space-between;
+
+  &>div {
+    &#columnProfile {
+      width: 320px;
+      height: 466px;
+
+      display: block;
+
+      &>* {
+        border-radius: 1rem;
+        background-color: var(--base-gray-100);
+        width: 100%;
+        display: flex;
+      }
+
+
+      & #userProfile {
+        height: 5.625rem;
+        padding: 1rem;
+
+        gap: 16px;
+
+        &>img {
+          width: 56px;
+          height: 56px;
+        }
+
+        &>* {
+          margin-block: auto;
+        }
+
+      }
+
+      & #userHistory {
+        height: 360px;
+        margin-top: 1rem;
+        padding: 1.75rem 1.75rem 1.5rem 1.5rem;
+
+        display: block;
+
+        & header {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          gap: 1rem;
+
+        }
+
+        & #historyList {
+          list-style: none;
+          height: 360px;
+          padding: 0.75rem 0;
+          border-top: 1px solid var(--base-gray-200);
+
+          &>li {
+            margin-bottom: 0.75rem;
+            display: flex;
+
+            justify-content: space-between;
+
+            & .title {
+              width: 4.1875rem;
+              height: 2.25rem;
+
+              font-size: 0.75rem;
+
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+            }
+
+            & .checkHistory {
+              width: 2rem;
+              height: 2rem;
+
+              background-color: #45B44212;
+              border-radius: 50%;
+
+              display: flex;
+              z-index: 1;
+
+              &>img {
+                margin: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &#columnCard {
+      width: 568px;
+      height: 100%;
+      background-color: var(--base-gray-100);
+      border-radius: 1rem;
+    }
+  }
+}
