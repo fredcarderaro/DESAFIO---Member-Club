@@ -9,11 +9,11 @@
 
 <body>
   <div class="container">
-    <header>
-      <img id="imgLogo" src="./src/assets/Logo.png" alt="Imagem do logo do comércio" />
-    </header>
-    <input id="cardID" type="text" name="cardID" placeholder="ID do cartão" required />
+
+    <img id="imgLogo" src="./src/assets/Logo.png" alt="Imagem do logo do comércio" />
+
     <form class="form">
+      <input id="cardID" type="text" name="cardID" placeholder="ID do cartão" required />
       <button type="submit" class="formButton">
         <img src="./src/assets/icons/arrowEmpty.svg" alt="Ícone de Enter com o campo vazio" />
       </button>
@@ -21,16 +21,121 @@
 
     <main id="content">
       <div id="columnProfile">
-        <header>
-          <img id="userImage" src="./src/assets/images/profileImage.svg" alt="Imagem de perfil do usuário">
+
+        <div id="userProfile">
+          <img src="./src/assets/images/profileImage.svg" alt="Imagem de perfil do usuário">
           <div id="userData">
             <h3>Natália Miranda</h3>
             <span>Cliente desde 18/09/2023</span>
           </div>
-        </header>
+        </div>
+
+        <div id="userHistory">
+          <header>
+            <h3>
+              HISTÓRICO
+            </h3>
+            <span>7 cortes</span>
+          </header>
+
+          <ul id="historyList">
+
+            <li>
+              <div class="title">
+                <h3>
+                  29/04/2024
+                </h3>
+                <p>18:30</p>
+              </div>
+              <div class="checkHistory">
+                <img src="./src/assets/PinUncheck.svg" alt="" class="checkIcon">
+              </div>
+            </li>
+
+            <li>
+              <div class="title">
+                <h3>
+                  29/04/2024
+                </h3>
+                <p>18:30</p>
+              </div>
+              <div class="checkHistory">
+                <img src="./src/assets/PinUncheck.svg" alt="" class="checkIcon">
+              </div>
+            </li>
+
+            <li>
+              <div class="title">
+                <h3>
+                  29/04/2024
+                </h3>
+                <p>18:30</p>
+              </div>
+              <div class="checkHistory">
+                <img src="./src/assets/PinUncheck.svg" alt="" class="checkIcon">
+              </div>
+            </li>
+          </ul>
+
+        </div>
       </div>
 
-      <div id="columnCard"></div>
+      <div id="columnCard">
+        <div id="card">
+          <div id="cardName">
+            <h3>CARTÃO FIDELIDADE</h3>
+            <p>Ao fazer cortes de cabelo, o décimo sai de graça!</p>
+          </div>
+          <div id="cardID">ID: 124-537-835-230</div>
+
+          <div id="cardChecks">
+            <div class="checkArea">
+              <img class="pinCheck" src="/src/assets/PinCheck.png" alt="Imagem de check">
+            </div>
+            <div class="checkArea">
+              <img class="pinCheck" src="/src/assets/PinCheck.png" alt="Imagem de check">
+            </div>
+            <div class="checkArea">
+              <img class="pinCheck" src="/src/assets/PinCheck.png" alt="Imagem de check">
+            </div>
+            <div class="checkArea">
+              <img class="pinCheck" src="/src/assets/PinCheck.png" alt="Imagem de check">
+            </div>
+            <div class="checkArea">
+              <img class="pinCheck" src="/src/assets/PinCheck.png" alt="Imagem de check">
+            </div>
+            <div class="checkArea">
+              <img class="pinCheck" src="/src/assets/PinCheck.png" alt="Imagem de check">
+            </div>
+            <div class="checkArea">
+              <img class="pinCheck" src="/src/assets/PinCheck.png" alt="Imagem de check">
+            </div>
+            <div class="checkArea">
+              <img class="pinCheck" src="/src/assets/PinCheck.png" alt="Imagem de check" hidden>
+            </div>
+            <div class="checkArea">
+              <img class="pinCheck" src="/src/assets/PinCheck.png" alt="Imagem de check" hidden>
+            </div>
+            <div class="checkArea">
+              <img class="pinGift" src="/src/assets/PinGiftGray.svg" alt="Imagem de check">
+            </div>
+          </div>
+        </div>
+        <div id="goal">
+          <div id="performed">
+            <p>
+              <strong>3</strong> cortes restantes
+            </p>
+            <div id="progress">
+              <div id="performedBar"></div>
+              <small>7 de 10</small>
+            </div>
+          </div>
+          <div id="complete">
+            <img id="completeGift" src="/src/assets/PinGift.svg" alt="Imagem de check">
+          </div>
+        </div>
+      </div>
     </main>
   </div>
 </body>
