@@ -5,6 +5,7 @@ const cardID = document.getElementById("cardID");
 const content = document.getElementById("content");
 
 const userProfile = document.getElementById('userProfile');
+const userHistory = document.getElementById("userHistory");
 
 form.onsubmit = async (event) => {
   event.preventDefault();
@@ -20,14 +21,7 @@ form.onsubmit = async (event) => {
       console.log(card);
 
       userProfile.innerHTML = "";
-
-      /*
-        <img src="./src/assets/images/download.jpeg" alt="Imagem de perfil do usuário">
-        <div id="userData">
-            <h3>FREDIANO CARDERARO</h3>
-            <span>Cliente desde 09/05/1986</span>
-       </div>
-      */
+      userHistory.innerHTML = "";
 
       const imgProfile = document.createElement("img");
       imgProfile.setAttribute("src", "./src/assets/images/profileImage.svg");
@@ -43,7 +37,45 @@ form.onsubmit = async (event) => {
       userProfile.appendChild(imgProfile);
       userProfile.appendChild(userData);
 
+      const historyHeader = document.createElement("header");
+      historyHeader.innerHTML = `
+            <h3>
+              HISTÓRICO
+            </h3>
+            <span>
+              ${card[0].appointmentHistory.length} cortes
+            </span>
+      `;
+
+      const historyList = document.createElement("ul");
+      historyList.setAttribute("id", "historyList");
+
+      const cutsHistory = card[0].appointmentHistory;
+
+      cutsHistory.forEach((cut) => {
+
+        const element = document.createElement("li");
+
+        element.innerHTML = `
+            <div class="title">
+              <h3>
+                ${cut.date}
+              </h3>
+              <p>${cut.time}</p>
+            </div>
+            <div class="checkHistory">
+              <img src="./src/assets/PinUncheck.svg" alt="" class="checkIcon">
+            </div>
+        `;
+        historyList.appendChild(element);
+      });
+
+
+      userHistory.appendChild(historyHeader)
+      userHistory.appendChild(historyList)
+
       content.classList.remove("hiddenElement");
+
 
     }
 
