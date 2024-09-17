@@ -22,6 +22,7 @@ form.onsubmit = async (event) => {
       await loadProfile(card[0]);
       await loadHistory(card[0].appointmentHistory);
       await loadCard(card[0].id, card[0].appointmentHistory.length);
+      await loadGoal(card[0].appointmentHistory.length);
 
       content.classList.remove("hiddenElement");
     }
@@ -34,8 +35,25 @@ form.onsubmit = async (event) => {
 
 }
 
+async function loadGoal(cuts) {
+  const performed = document.getElementById("performed");
+  const performedBar = document.getElementById("performedBar");
+
+  console.log(performed);
+
+  performed.innerHTML = `
+    <p>
+      <strong>${(10 - cuts)}</strong> cortes restantes
+    </p>
+    <div id="progress">
+      <div id="performedBar" style="width: ${cuts * 10}%"></div>
+      <small>${cuts} de 10</small>
+    </div>
+  `;
+}
+
 async function loadCard(id, checks) {
-  const cardNumber = document.getElementById("cardNumber");
+  const idNumber = document.getElementById("idNumber");
   const cardChecks = document.getElementById("cardChecks");
 
   idNumber.innerHTML = "";
@@ -62,23 +80,6 @@ async function loadCard(id, checks) {
     cardChecks.appendChild(checkArea);
 
   }
-
-
-  //   <div id="goal">
-  //     <div id="performed">
-  //       <p>
-  //         <strong>3</strong> cortes restantes
-  //       </p>
-  //       <div id="progress">
-  //         <div id="performedBar"></div>
-  //         <small>7 de 10</small>
-  //       </div>
-  //     </div>
-  //     <div id="complete">
-  //       <img id="completeGift" src="/src/assets/PinGift.svg" alt="Imagem de check">
-  //     </div>
-  //   </div>
-  // </div>
 
   return;
 }
