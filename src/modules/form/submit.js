@@ -4,8 +4,7 @@ const form = document.querySelector("form");
 const cardID = document.getElementById("cardID");
 const content = document.getElementById("content");
 
-const userProfile = document.getElementById('userProfile');
-const userHistory = document.getElementById("userHistory");
+
 
 form.onsubmit = async (event) => {
   event.preventDefault();
@@ -20,63 +19,11 @@ form.onsubmit = async (event) => {
     else {
       console.log(card);
 
-      userProfile.innerHTML = "";
-      userHistory.innerHTML = "";
-
-      const imgProfile = document.createElement("img");
-      imgProfile.setAttribute("src", "./src/assets/images/profileImage.svg");
-      imgProfile.setAttribute("alt", "Imagem de Perfil");
-
-      const userData = document.createElement("div");
-      userData.setAttribute("id", "userData");
-      userData.innerHTML = `
-        <h3>${card[0].name}</h3>
-        <span>Cliente desde ${card[0].clientSince}</span>
-      `;
-
-      userProfile.appendChild(imgProfile);
-      userProfile.appendChild(userData);
-
-      const historyHeader = document.createElement("header");
-      historyHeader.innerHTML = `
-            <h3>
-              HISTÓRICO
-            </h3>
-            <span>
-              ${card[0].appointmentHistory.length} cortes
-            </span>
-      `;
-
-      const historyList = document.createElement("ul");
-      historyList.setAttribute("id", "historyList");
-
-      const cutsHistory = card[0].appointmentHistory;
-
-      cutsHistory.forEach((cut) => {
-
-        const element = document.createElement("li");
-
-        element.innerHTML = `
-            <div class="title">
-              <h3>
-                ${cut.date}
-              </h3>
-              <p>${cut.time}</p>
-            </div>
-            <div class="checkHistory">
-              <img src="./src/assets/PinUncheck.svg" alt="" class="checkIcon">
-            </div>
-        `;
-        historyList.appendChild(element);
-      });
-
-
-      userHistory.appendChild(historyHeader)
-      userHistory.appendChild(historyList)
+      await loadProfile(card[0]);
+      await loadHistory(card[0].appointmentHistory);
+      await loadCard(card[0].id, card[0].appointmentHistory.length);
 
       content.classList.remove("hiddenElement");
-
-
     }
 
   } catch (error) {
@@ -85,6 +32,119 @@ form.onsubmit = async (event) => {
   }
 
 
+}
+
+async function loadCard(id, checks) {
+  const cardNumber = document.getElementById("cardNumber");
+  const cardChecks = document.getElementById("cardChecks");
+
+  idNumber.innerHTML = "";
+  cardChecks.innerHTML = "";
+
+  const cardContent = `
+    <div id="cardID">ID: ${id}</div>
+  `;
+
+  for (let cont = 0; cont < 10; cont++) {
+    const checkArea = document.createElement("div");
+    checkArea.classList.add("checkArea");
+
+    if (cont < checks) {
+      checkArea.innerHTML = `
+        <img class="pinCheck" src="/src/assets/PinCheck.png" alt="Imagem de check">
+      `;
+    } else if (cont === 9 && checks < 10) {
+      checkArea.innerHTML = `
+        <img class="pinGift" src="/src/assets/PinGiftGray.svg" alt="Imagem de check">
+      `;
+    }
+
+    cardChecks.appendChild(checkArea);
+
+  }
+
+
+  //   <div id="goal">
+  //     <div id="performed">
+  //       <p>
+  //         <strong>3</strong> cortes restantes
+  //       </p>
+  //       <div id="progress">
+  //         <div id="performedBar"></div>
+  //         <small>7 de 10</small>
+  //       </div>
+  //     </div>
+  //     <div id="complete">
+  //       <img id="completeGift" src="/src/assets/PinGift.svg" alt="Imagem de check">
+  //     </div>
+  //   </div>
+  // </div>
+
+  return;
+}
+
+
+async function loadHistory(cuts) {
+  const userHistory = document.getElementById("userHistory");
+
+  const historyHeader = document.createElement("header");
+  historyHeader.innerHTML = `
+        <h3>
+          HISTÓRICO
+        </h3>
+        <span>
+          ${cuts.length} cortes
+        </span>
+  `;
+
+  const historyList = document.createElement("ul");
+  historyList.setAttribute("id", "historyList");
+
+  cuts.forEach((cut) => {
+
+    const element = document.createElement("li");
+
+    element.innerHTML = `
+        <div class="title">
+          <h3>
+            ${cut.date}
+          </h3>
+          <p>${cut.time}</p>
+        </div>
+        <div class="checkHistory">
+          <img src="./src/assets/PinUncheck.svg" alt="" class="checkIcon">
+        </div>
+    `;
+    historyList.appendChild(element);
+  });
+
+  userHistory.appendChild(historyHeader);
+  userHistory.appendChild(historyList);
+
+  return;
+}
+
+async function loadProfile(user) {
+  const userProfile = document.getElementById('userProfile');
+
+  userProfile.innerHTML = "";
+  userHistory.innerHTML = "";
+
+  const imgProfile = document.createElement("img");
+  imgProfile.setAttribute("src", "./src/assets/images/profileImage.svg");
+  imgProfile.setAttribute("alt", "Imagem de Perfil");
+
+  const userData = document.createElement("div");
+  userData.setAttribute("id", "userData");
+  userData.innerHTML = `
+        <h3>${user.name}</h3>
+        <span>Cliente desde ${user.clientSince}</span>
+      `;
+
+  userProfile.appendChild(imgProfile);
+  userProfile.appendChild(userData);
+
+  return;
 }
 
 
@@ -97,6 +157,8 @@ async function fetchCard(id) {
 
   if (cardReturn < 1)
     return false;
+
+  cardID.value = "";
 
   return cardReturn;
 }   
