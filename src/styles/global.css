@@ -95,4 +95,20 @@ div.container {
   & .hiddenElement {
     opacity: 0;
   }
+
+  & .dialogMessage {
+    margin: auto;
+    width: 80%;
+    height: 30%;
+
+    background-color: var(--base-gray-400);
+    border: dashed .5rem var(--main-pink);
+
+    align-content: center;
+    text-align: center;
+
+    &>* {
+      margin: 1rem;
+    }
+  }
 }

@@ -39,8 +39,6 @@ async function loadGoal(cuts) {
   const performed = document.getElementById("performed");
   const performedBar = document.getElementById("performedBar");
 
-  console.log(performed);
-
   performed.innerHTML = `
     <div>
       <h1 class="title-md">${(10 - cuts)}</h1>
@@ -72,19 +70,34 @@ async function loadCard(id, checks) {
     const checkArea = document.createElement("div");
     checkArea.classList.add("checkArea");
 
+    console.log(checks, cont);
+
     if (cont < checks) {
       checkArea.innerHTML = `
         <img class="pinCheck" src="/src/assets/PinCheck.png" alt="Imagem de check">
       `;
     } else if (cont === 9 && checks < 10) {
       checkArea.innerHTML = `
-        <img class="pinGift" src="/src/assets/PinGiftGray.svg" alt="Imagem de check">
+        <img class="pinGift" src="/src/assets/PinGiftGray.svg" alt="Imagem de presente">
       `;
     }
 
-
     cardChecks.appendChild(checkArea);
+  }
 
+  if (checks === 10) {
+    const modalMessage = document.createElement("dialog");
+    modalMessage.classList.add("dialogMessage");
+
+    modalMessage.innerHTML = `
+        <h1>Parabéns! Seu próximo corte é gratuito!</h1>
+        <form method="dialog">
+          <button>Ok</button>
+        </form>
+    `;
+    content.appendChild(modalMessage);
+
+    modalMessage.open = true;
   }
 
   return;
