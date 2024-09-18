@@ -21,7 +21,7 @@
   /* Text-size styles */
   /* base size: body-text-md (16px) */
   --heading-title-md: 1.5rem;
-  --heading-title-sm: 1.12rem;
+  --heading-title-sm: 1.125rem;
   --heading-subtitle-md: 0.88rem;
   --heading-subtitle-sm: 0.75rem;
   --body-text-md: 1rem;
@@ -31,9 +31,44 @@
 }
 
 body {
+  font-family: "Oxygen", sans-serif;
+  font-weight: 140;
+  color: var(--base-gray-500);
+
+  & h3 {
+    font-size: var(--heading-subtitle-sm);
+  }
+
+  & h2 {
+    font-size: var(--heading-subtitle-sm);
+  }
+
+  & h1.title-sm {
+    font-size: var(--heading-title-sm);
+    color: var(--base-gray-600)
+  }
+
+  & h1.title-md {
+    font-size: var(--heading-title-md);
+    color: var(--base-gray-600)
+  }
+
+  & .text-xs {
+    font-size: var(--body-text-xs);
+  }
+
+  & .text-sm {
+    font-size: var(--body-text-sm);
+  }
+
+  & .text-md {
+    font-size: var(--body-text-md);
+  }
+
   & #imgLogo {
     width: 7.25rem;
     height: 3.5rem;
+    margin: 4rem auto 2rem auto;
   }
 }
 
@@ -43,11 +78,11 @@ body {
 
 div.container {
   /* Estilo para teste e posicionamento */
-  border: solid 2px green;
+  /* border: solid 2px green; */
   /* background-color: cadetblue; */
   background-color: var(--base-gray-200);
   width: 100%;
-  height: 100vh;
+  height: 100%;
 
   display: flex;
   flex-direction: column;

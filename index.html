@@ -2,9 +2,14 @@
 <html lang="en">
 
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Member Club</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -25,8 +30,8 @@
         <div id="userProfile">
           <!-- <img src="./src/assets/images/download.jpeg" alt="Imagem de perfil do usuário">
           <div id="userData">
-            <h3>FREDIANO CARDERARO</h3>
-            <span>Cliente desde 09/05/1986</span>
+            <h1 class="title-sm">FREDIANO CARDERARO</h>
+            <p class="text-xs">Cliente desde 09/05/1986</p>
           </div> -->
         </div>
 
@@ -35,7 +40,7 @@
             <h3>
               HISTÓRICO
             </h3>
-            <span>7 cortes</span>
+            <p class="text-xs">7 cortes</p>
           </header>
 
           <ul id="historyList">
@@ -45,7 +50,7 @@
                   <h3>
                     29/04/2024
                   </h3>
-                  <p>18:30</p>
+                  <p class="text-xs">18:30</p>
                 </div>
                 <div class="checkHistory">
                   <img src="./src/assets/PinUncheck.svg" alt="" class="checkIcon">
@@ -57,7 +62,7 @@
                 <h3>
                   29/04/2024
                 </h3>
-                <p>18:30</p>
+                <p class="text-xs">18:30</p>
               </div>
               <div class="checkHistory">
                 <img src="./src/assets/PinUncheck.svg" alt="" class="checkIcon">
@@ -69,7 +74,7 @@
                 <h3>
                   29/04/2024
                 </h3>
-                <p>18:30</p>
+                <p class="text-xs">18:30</p>
               </div>
               <div class="checkHistory">
                 <img src="./src/assets/PinUncheck.svg" alt="" class="checkIcon">
@@ -84,9 +89,11 @@
         <div id="card">
           <div id="cardName">
             <h3>CARTÃO FIDELIDADE</h3>
-            <p>Ao fazer cortes de cabelo, o décimo sai de graça!</p>
+            <p class="text-sm">Ao fazer cortes de cabelo, o décimo sai de graça!</p>
           </div>
-          <div id="idNumber"></div>
+          <div id="idNumber">
+            <!-- <h2>ID: 000-000-000</h2> -->
+          </div>
 
           <div id="cardChecks">
             <!-- <div class="checkArea">
@@ -124,11 +131,16 @@
 
         <div id="goal">
           <div id="performed">
-            <p>
-              <strong>3</strong> cortes restantes
-            </p>
+            <div>
+              <h1 class="title-md">2</h1>
+              <p class="text-md">
+                cortes restantes
+              </p>
+            </div>
             <div id="progress">
-              <div id="performedBar">sdf</div>
+              <div id="completeBar">
+                <div id="performedBar"></div>
+              </div>
               <small>7 de 10</small>
             </div>
           </div>

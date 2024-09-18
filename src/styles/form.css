@@ -1,1 +1,28 @@
-form.form {}
+form.form {
+  display: flex;
+  width: 25rem;
+  height: 3.5rem;
+
+  & input {
+    width: 100%;
+    background-color: var(--base-gray-300);
+    border-radius: .75rem;
+    border: solid 1px var(--base-gray-400);
+    padding: 1rem;
+
+    position: relative;
+  }
+
+  & button {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--base-gray-700);
+    border-radius: .75rem;
+
+
+    position: relative;
+
+    margin: auto;
+    left: -2.8rem;
+  }
+}

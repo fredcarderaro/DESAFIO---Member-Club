@@ -42,12 +42,17 @@ async function loadGoal(cuts) {
   console.log(performed);
 
   performed.innerHTML = `
-    <p>
-      <strong>${(10 - cuts)}</strong> cortes restantes
-    </p>
+    <div>
+      <h1 class="title-md">${(10 - cuts)}</h1>
+      <p class="text-md">
+       &nbsp; cortes restantes
+      </p>
+    </div>
     <div id="progress">
-      <div id="performedBar" style="width: ${cuts * 10}%"></div>
-      <small>${cuts} de 10</small>
+      <div id="completeBar">
+        <div id="performedBar" style="width: ${cuts * 10}%"></div>
+      </div>
+      <p class="text-xs">${cuts} de 10</p>
     </div>
   `;
 }
@@ -59,8 +64,8 @@ async function loadCard(id, checks) {
   idNumber.innerHTML = "";
   cardChecks.innerHTML = "";
 
-  const cardContent = `
-    <div id="cardID">ID: ${id}</div>
+  idNumber.innerHTML = `
+    <h2>ID: ${id}</h2>
   `;
 
   for (let cont = 0; cont < 10; cont++) {
@@ -76,6 +81,7 @@ async function loadCard(id, checks) {
         <img class="pinGift" src="/src/assets/PinGiftGray.svg" alt="Imagem de check">
       `;
     }
+
 
     cardChecks.appendChild(checkArea);
 
@@ -93,9 +99,9 @@ async function loadHistory(cuts) {
         <h3>
           HISTÓRICO
         </h3>
-        <span>
+        <p class="text-xs">
           ${cuts.length} cortes
-        </span>
+        </p>
   `;
 
   const historyList = document.createElement("ul");
@@ -110,7 +116,7 @@ async function loadHistory(cuts) {
           <h3>
             ${cut.date}
           </h3>
-          <p>${cut.time}</p>
+          <p class="text-xs">${cut.time}</p>
         </div>
         <div class="checkHistory">
           <img src="./src/assets/PinUncheck.svg" alt="" class="checkIcon">
@@ -132,14 +138,14 @@ async function loadProfile(user) {
   userHistory.innerHTML = "";
 
   const imgProfile = document.createElement("img");
-  imgProfile.setAttribute("src", "./src/assets/images/profileImage.svg");
+  imgProfile.setAttribute("src", `./src/assets/images/${user.id}.svg`);
   imgProfile.setAttribute("alt", "Imagem de Perfil");
 
   const userData = document.createElement("div");
   userData.setAttribute("id", "userData");
   userData.innerHTML = `
-        <h3>${user.name}</h3>
-        <span>Cliente desde ${user.clientSince}</span>
+        <h1 class="title-sm">${user.name}</h1>
+        <p class="text-xs">Cliente desde ${user.clientSince}</p>
       `;
 
   userProfile.appendChild(imgProfile);
